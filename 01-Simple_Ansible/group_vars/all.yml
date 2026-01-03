@@ -1,11 +1,7 @@
 ---
 users:
-  - name: gomes
-    ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrmAQ3mX/nhskv8yI54a+56uOGb1FXOoxHZ31GDYYRi patrick@autobox"
-    privilege: 15
-    role: network-admin
 
-  - name: silva
-    ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrmAQ3mX/nhskv8yI54a+56uOGb1FXOoxHZ31GDYYRi patrick@autobox"
-    privilege: 15
-    role: network-admin
+  # - name: silva
+  #   ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrmAQ3mX/nhskv8yI54a+56uOGb1FXOoxHZ31GDYYRi patrick@autobox"
+  #   privilege: 15
+  #   role: network-admin

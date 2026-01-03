@@ -1,9 +1,9 @@
 ---
 all:
   vars:
-    ansible_user: admin
+    ansible_user: arista
     ansible_network_os: eos
-    ansible_password: admin
+    ansible_password: arista
     ansible_connection: httpapi
     ansible_httpapi_use_ssl: True
     ansible_httpapi_validate_certs: False
@@ -16,10 +16,14 @@ all:
         LEAFS:
           hosts:
             leaf1:
+                ansible_host: 10.1.10.1
             leaf2:
+                ansible_host: 10.1.10.4
             leaf3:
-            leaf4:
+                ansible_host: 10.1.10.5
         SPINES:
           hosts:  
             spine1:
+                ansible_host: 10.1.10.2
             spine2:
+                ansible_host: 10.1.10.3
