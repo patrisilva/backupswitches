@@ -1,0 +1,22 @@
+---
+- name: Add Users to device
+  hosts: FABRIC
+  tasks:
+    - name: Add SSH keys
+      arista.eos.eos_user:
+        name: "{{ item.name }}"
+        sshkey: "{{ item.ssh_key }}"
+        state: present
+      loop: "{{ users }}"
+      loop_control:
+        label: "{{ item.name }}"
+    - name: Add user
+      arista.eos.eos_user:
+        name: "{{ item.name }}"
+        nopassword: true
+        privilege: "{{ item.privilege }}"
+        role: "{{ item.role }}"
+        state: present
+      loop: "{{ users }}"
+      loop_control:
+        label: "{{ item.name }}"

@@ -1,0 +1,19 @@
+---
+# Note, commands cannot be abbreviated, i.e. can't be "copy run start"
+- name: Show mlag status
+  hosts: LEAFS
+  tasks:
+    - name: Show mlag status
+      arista.eos.eos_command:
+        commands: 
+          - command: show mlag
+            output: json
+      register: mlag_status
+
+    - name: Display MLAG status
+      ansible.builtin.debug:
+        msg: "{{ mlag_status['stdout_lines'][0]}}"
+# the 0 refers to the first command in the list of commands, in this case we only have one command, after we can filter the output further with the key pairs. See example below
+    - name: Display MLAG status
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} | MLAG STATUS: {{ mlag_status['stdout_lines'][0]['negStatus'] }}"

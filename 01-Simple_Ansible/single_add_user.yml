@@ -1,0 +1,16 @@
+---
+- name: Add Users to device
+  hosts: all
+  tasks:
+    - name: Add SSH keys
+      arista.eos.eos_user:
+        name: patrick
+        sshkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrmAQ3mX/nhskv8yI54a+56uOGb1FXOoxHZ31GDYYRi patrick@autobox"
+        state: present
+    - name: Add user
+      arista.eos.eos_user:
+        name: patrick
+        nopassword: true
+        privilege: 15
+        role: network-admin
+        state: present
